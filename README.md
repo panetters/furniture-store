@@ -1,1 +1,1 @@
-# furniture-store
+# Furniture Store
