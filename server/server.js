@@ -1,11 +1,17 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+require('dotenv').config();
 
-const app = express();
-app.use(bodyParser.json());
-app.use('/spreetail', express.static(__dirname + '../public'));
+const database = require('../database/database');
+const routes = require('./routes');
+
+const server = express();
+server.use(bodyParser.json());
+server.use('/spreetail', express.static(__dirname + '../public'));
+
+server.use('/api/', routes);
 
 const port = 8082;
-app.listen(port, () => {
+server.listen(port, () => {
   console.log('Listening on port ' + port);
 });

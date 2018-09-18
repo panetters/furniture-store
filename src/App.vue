@@ -1,18 +1,17 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    Header
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Splash from './components/Splash.vue'
 
 export default {
   name: 'App',
 
   components: {
-    HelloWorld
   }
 }
 </script>
@@ -21,10 +20,7 @@ export default {
 @import '../public/css-reset.css';
 @import url("https://fonts.googleapis.com/css?family=Fredoka+One");
 
-#app {
+body {
   font-family: 'Fredoka One';
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
 }
 </style>

@@ -1,10 +1,13 @@
 module.exports = {
   root: true,
   env: {
-    node: true,
+    node: true
   },
   extends: ['plugin:vue/essential'],
   rules: {
-    'no-console': 'off',
-  }
+    'no-console': 'off'
+  },
+  parserOptions: {
+    "ecmaVersion": 8
+  },
 };
