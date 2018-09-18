@@ -9,10 +9,16 @@
         </b-form-radio>
       </b-form-radio-group>
     </b-form-group>
+    <div>
+      Quantity: <b-form-input type="number" v-model="quantity" value="1" min="1" class="quantity-input"></b-form-input>
+    </div>
+    <b-button size="lg" variant="outline-success" v-on:click="addToCart">Add to Cart!</b-button>
   </b-col>
 </template>
 
 <script>
+import { mapActions } from 'vuex';
+
 export default {
   name: 'ProductDetailBuy',
 
@@ -21,6 +27,16 @@ export default {
   data() {
     return {
       selected: '',
+      quantity: ''
+    }
+  },
+
+  methods: {
+    ...mapActions(['addToCart']),
+    
+    addToCart() {
+      const newProd = this.details.filter(obj => obj.product_id === this.selected);
+      this.addToCart(newProd, )
     }
   },
 
@@ -31,20 +47,8 @@ export default {
 </script>
 
 <style scoped>
-.flex-column {
-  text-align: center;
-}
-
-.product-model {
-  font-weight: bold;
-  font-size: calc(15px + 2vw);
-}
-
-.product-image {
-  width: calc(100px + 20vw);
-}
-
-.product-id {
-  font-size: calc(8px + 1.2vw);
+.quantity-input {
+  display: inline-block;
+  width: 65px;
 }
 </style>
