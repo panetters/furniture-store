@@ -1,17 +1,18 @@
 <template>
   <div id="app">
-    Header
+    <Navbar />
     <router-view></router-view>
   </div>
 </template>
 
 <script>
-import Splash from './components/Splash.vue'
+import Navbar from './components/Navbar'
 
 export default {
   name: 'App',
 
   components: {
+    Navbar
   }
 }
 </script>
@@ -19,8 +20,4 @@ export default {
 <style>
 @import '../public/css-reset.css';
 @import url("https://fonts.googleapis.com/css?family=Fredoka+One");
-
-body {
-  font-family: 'Fredoka One';
-}
 </style>

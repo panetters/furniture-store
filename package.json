@@ -10,6 +10,7 @@
   "dependencies": {
     "axios": "^0.18.0",
     "body-parser": "^1.18.3",
+    "bootstrap-vue": "^2.0.0-rc.11",
     "dotenv": "^6.0.0",
     "express": "^4.16.3",
     "mongoose": "^5.2.15",
@@ -17,10 +18,13 @@
     "vue-router": "^3.0.1"
   },
   "devDependencies": {
+    "autoprefixer": "^9.1.5",
+    "babel-loader": "^8.0.2",
     "@vue/cli-plugin-babel": "^3.0.0",
     "@vue/cli-plugin-eslint": "^3.0.0",
     "@vue/cli-service": "^3.0.0",
-    "vue-template-compiler": "^2.5.17"
+    "vue-template-compiler": "^2.5.17",
+    "webpack": "^4.19.1"
   },
   "eslintConfig": {
     "root": true,
