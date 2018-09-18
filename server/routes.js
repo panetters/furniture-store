@@ -14,4 +14,9 @@ router.get('/category', async (req, res) => {
   res.send(catFurn);
 });
 
+router.get('/model', async (req, res) => {
+  const modelInfo = await db.getModelInfo(req.query.modelName);
+  res.send(modelInfo);
+});
+
 module.exports = router;
