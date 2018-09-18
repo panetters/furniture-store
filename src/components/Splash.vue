@@ -1,39 +1,25 @@
 <template>
-  <div v-on:click="testServer">
-    Splash
+  <div>
+    <b-jumbotron class="jumbo" header="Welcome to Spreetail"
+      lead="World's finest purveyor of knockoff Ikea furniture"></b-jumbotron>
+    <MenuBar />
   </div>
 </template>
 
 <script>
-import axios from 'axios';
+import MenuBar from './MenuBar'
 
 export default {
-  name: 'HelloWorld',
+  name: 'Splash',
 
-  methods: {
-    testServer() {
-      axios.get('/api/test')
-        .then(res => {
-          console.log(res);
-        })
-    }
+  components: {
+    MenuBar
   }
 }
 </script>
 
 <style scoped>
-h3 {
-  margin: 40px 0 0;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
+.jumbo {
+  margin-bottom: 0;
 }
 </style>

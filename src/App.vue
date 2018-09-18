@@ -18,6 +18,9 @@ export default {
 </script>
 
 <style>
-@import '../public/css-reset.css';
 @import url("https://fonts.googleapis.com/css?family=Fredoka+One");
+
+.logo {
+  font-family: "Fredoka One"
+}
 </style>
