@@ -1,20 +1,13 @@
 <template>
   <div>
-    <b-jumbotron class="jumbo" header="Welcome to Spreetail"
+    <b-jumbotron class="jumbo logo" header="Welcome to Spreetail"
       lead="World's finest purveyor of knockoff Ikea furniture"></b-jumbotron>
-    <MenuBar />
   </div>
 </template>
 
 <script>
-import MenuBar from './MenuBar'
-
 export default {
-  name: 'Splash',
-
-  components: {
-    MenuBar
-  }
+  name: 'Splash'
 }
 </script>
 

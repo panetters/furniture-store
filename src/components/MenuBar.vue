@@ -3,7 +3,7 @@
     <b-navbar-toggle target="nav_collapse"></b-navbar-toggle>
     <b-navbar-nav class="ml-left">
       <b-nav-item-dropdown text="Categories">
-        <b-dropdown-item v-for="category in categories" :key="category" href="#">
+        <b-dropdown-item v-for="category in categories" :key="category" v-on:click="catSelect(category)">
           {{ category }}
         </b-dropdown-item>
       </b-nav-item-dropdown>
@@ -23,10 +23,15 @@ export default {
     };
   },
 
+  methods: {
+    catSelect(cat) {
+      this.$router.push({ path: `/category/${cat}` });
+    }
+  },
+
   mounted() {
     axios.get('/api/categories')
       .then(res => {
-        console.log(res.data);
         this.categories = res.data;
       })
   }

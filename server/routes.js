@@ -9,4 +9,9 @@ router.get('/categories', async (req, res) => {
   res.send(categories);
 });
 
+router.get('/category', async (req, res) => {
+  const catFurn = await db.getCategoryFurn(req.query.catName);
+  res.send(catFurn);
+});
+
 module.exports = router;
