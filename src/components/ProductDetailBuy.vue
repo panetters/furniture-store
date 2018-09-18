@@ -12,7 +12,7 @@
     <div>
       Quantity: <b-form-input type="number" v-model="quantity" value="1" min="1" class="quantity-input"></b-form-input>
     </div>
-    <b-button size="lg" variant="outline-success" v-on:click="addToCart">Add to Cart!</b-button>
+    <b-button size="lg" variant="outline-success" v-on:click="addProductToCart">Add to Cart!</b-button>
   </b-col>
 </template>
 
@@ -27,16 +27,17 @@ export default {
   data() {
     return {
       selected: '',
-      quantity: ''
+      quantity: '1'
     }
   },
 
   methods: {
     ...mapActions(['addToCart']),
-    
-    addToCart() {
-      const newProd = this.details.filter(obj => obj.product_id === this.selected);
-      this.addToCart(newProd, )
+
+    addProductToCart() {
+      const newProd = this.details.find(obj => obj.product_id === this.selected);
+      newProd.quantity = parseInt(this.quantity);
+      this.addToCart(newProd);
     }
   },
 
