@@ -1,7 +1,7 @@
 <template>
   <b-container fluid v-if="details[0]">
     <b-row>
-      <ProductDetailView :model="modelName" :imageURL="curImageURL" :productID="curProductID" />
+      <ProductDetailView :model="modelName" :imageURL="curImageURL" :price="curPrice" />
       <ProductDetailBuy :details="details" :updateSelection="updateSelection"/>
     </b-row>
   </b-container>
@@ -27,14 +27,13 @@ export default {
     return {
       details: [],
       curImageURL: '',
-      curProductID: '',
+      curPrice: '',
     }
   },
 
   methods: {
-    updateSelection(url, id) {
+    updateSelection(url) {
       this.curImageURL = url;
-      this.curProductID = id;
     }
   },
 
@@ -43,7 +42,7 @@ export default {
       .then(res => {
         this.details = res.data;
         this.curImageURL = res.data[0].image_url;
-        this.curProductID = res.data[0].product_id;
+        this.curPrice = res.data[0].price;
       });
   }
 }

@@ -2,7 +2,7 @@
   <b-col class="flex-column" >
     <div class="product-model">{{ model }}</div>
     <img class="product-image" :src="imageURL" />
-    <div class="product-id">Model Number: {{ productID }}</div>
+    <div class="product-price">Price: {{ price }}</div>
   </b-col>
 </template>
 
@@ -10,7 +10,7 @@
 export default {
   name: 'ProductDetailView',
 
-  props: ['model', 'imageURL', 'productID'],
+  props: ['model', 'imageURL', 'price'],
 }
 </script>
 
@@ -28,7 +28,7 @@ export default {
   width: calc(100px + 20vw);
 }
 
-.product-id {
+.product-price {
   font-size: calc(8px + 1.2vw);
 }
 </style>

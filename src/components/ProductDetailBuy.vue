@@ -1,6 +1,6 @@
 <template>
   <b-col class="flex-column" >
-    <div class="product-price">{{ details[0].price }}</div>
+    <div class="product-ID">Model Number: {{ selected }}</div>
     <b-form-group label="Colors:">
       <b-form-radio-group buttons button-variant="outline-primary" v-model="selected" name="radioSubComponent">
         <b-form-radio v-for="version in details" :key="version.product_id" :value="version.product_id"
