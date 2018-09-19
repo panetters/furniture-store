@@ -27,7 +27,6 @@ export default {
 }
 
 .category-model {
-  font-weight: bold;
   font-size: calc(15px + 2vw);
 }
 

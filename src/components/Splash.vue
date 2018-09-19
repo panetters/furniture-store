@@ -43,7 +43,6 @@ export default {
   margin-bottom: 0;
   background: url('../assets/skate.jpg');
   background-position-x: center;
-  /* background: #8DF3CF url('https://spreetail.com/wp-content/themes/spreetail/assets/img/brand/pattern2.png'); */
 }
 
 .slide-container {

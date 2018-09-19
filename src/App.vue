@@ -39,10 +39,15 @@ export default {
 </script>
 
 <style>
+@import url("https://fonts.googleapis.com/css?family=Quicksand");
 @import url("https://fonts.googleapis.com/css?family=Fredoka+One");
 
+body {
+  font-family: "Quicksand"
+}
+
 .logo {
-  font-family: "Fredoka One"
+  font-family: "Fredoka One";
 }
 
 .pointer:hover {
