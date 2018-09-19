@@ -10,6 +10,7 @@ import Splash from './components/Splash';
 import Cart from './components/Cart';
 import Category from './components/Category';
 import ProductDetail from './components/ProductDetail';
+import Search from './components/Search';
 
 Vue.config.productionTip = false;
 Vue.use(VueRouter);
@@ -19,7 +20,8 @@ const routes = [
   { path: '/', component: Splash },
   { path: '/cart', component: Cart},
   { path: '/category/:catName', component: Category, props: true },
-  { path: '/model/:modelName', component: ProductDetail, props: true }
+  { path: '/model/:modelName', component: ProductDetail, props: true },
+  { path: '/search/:searchQuery', component: Search, props: true }
 ];
 
 const router = new VueRouter({

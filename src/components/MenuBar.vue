@@ -8,6 +8,11 @@
             {{ category }}
           </b-dropdown-item>
         </b-nav-item-dropdown>
+        <b-nav-form>
+          <b-form-input size="sm" class="mr-sm-2" type="text" @keyup.enter.native="search"
+            v-model="searchQuery" placeholder="Search"/>
+          <b-button size="sm" class="my-2 my-sm-0" v-on:click="search">Search</b-button>
+        </b-nav-form>
       </b-navbar-nav>
     </b-collapse>
   </b-navbar>
@@ -21,13 +26,18 @@ export default {
 
   data() {
     return {
-      categories: []
+      categories: [],
+      searchQuery: ''
     };
   },
 
   methods: {
     catSelect(cat) {
       this.$router.push({ path: `/category/${cat}` });
+    },
+
+    search() {
+      console.log(this.searchQuery);
     }
   },
 
