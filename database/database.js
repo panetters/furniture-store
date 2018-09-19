@@ -34,11 +34,11 @@ const getCategories = async () => {
 const getCategoryFurn = async (cat) => {
   const res = await CategoryFurn.aggregate([
     { $group: {
-        _id: "$model",
-        category: { $first: "$category" },
-        model: { $first: "$model" },
-        price: { $first: "$price" },
-        image_url: { $first: "$image_url" }
+        _id: '$model',
+        category: { $first: '$category' },
+        model: { $first: '$model' },
+        price: { $first: '$price' },
+        image_url: { $first: '$image_url' }
     }},
     { $match: { category: cat }},
   ]);
@@ -46,10 +46,22 @@ const getCategoryFurn = async (cat) => {
 };
 
 const getModelInfo = async (model) => {
-  const res = await Categories.find({ model: model });
+  const res = await ModelInfo.find({ model: model });
+  return res;
+};
+
+const getSearchResults = async (query) => {
+  console.log(query);
+  const res = await ModelInfo.find({
+    $or: [
+      {'model': { $regex: query, $options: 'i' }},
+      {'category': { $regex: query, $options: 'i' }}
+    ]
+  })
   return res;
 };
 
 module.exports.getCategories = getCategories;
 module.exports.getCategoryFurn = getCategoryFurn;
 module.exports.getModelInfo = getModelInfo;
+module.exports.getSearchResults = getSearchResults;

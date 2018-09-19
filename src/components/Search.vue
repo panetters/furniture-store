@@ -31,7 +31,7 @@ export default {
 
   methods: {
     updateFurniture() {
-      axios.get(`/api/search?query=${this.searchQuery}`)
+      axios.get(`/api/search?searchQuery=${this.searchQuery}`)
       .then(res => {
         this.furniture = res.data;
       })

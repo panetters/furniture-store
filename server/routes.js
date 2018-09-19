@@ -20,8 +20,8 @@ router.get('/model', async (req, res) => {
 });
 
 router.get('/search', async (req, res) => {
-  const catFurn = await db.getCategoryFurn(req.query.catName);
-  res.send(catFurn);
+  const searchRes = await db.getSearchResults(req.query.searchQuery);
+  res.send(searchRes);
 });
 
 module.exports = router;

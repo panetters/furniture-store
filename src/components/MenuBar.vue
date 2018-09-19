@@ -37,7 +37,7 @@ export default {
     },
 
     search() {
-      console.log(this.searchQuery);
+      this.$router.push({ path: `/search/${this.searchQuery}` });
     }
   },
 
