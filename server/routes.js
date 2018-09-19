@@ -24,4 +24,9 @@ router.get('/search', async (req, res) => {
   res.send(searchRes);
 });
 
+router.get('/slides', async (req, res) => {
+  const slides = await db.getSlides();
+  res.send(slides);
+});
+
 module.exports = router;

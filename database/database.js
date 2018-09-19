@@ -69,7 +69,15 @@ const getSearchResults = async (query) => {
   return res;
 };
 
+const getSlides = async () => {
+  const res = await ModelInfo.aggregate([
+    { $sample: { size: 15 }} 
+  ]);
+  return res;
+};
+
 module.exports.getCategories = getCategories;
 module.exports.getCategoryFurn = getCategoryFurn;
 module.exports.getModelInfo = getModelInfo;
 module.exports.getSearchResults = getSearchResults;
+module.exports.getSlides = getSlides;
