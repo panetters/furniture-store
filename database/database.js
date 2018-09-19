@@ -51,7 +51,6 @@ const getModelInfo = async (model) => {
 };
 
 const getSearchResults = async (query) => {
-  console.log(query);
   const res = await ModelInfo.find({
     $or: [
       {'model': { $regex: query, $options: 'i' }},
