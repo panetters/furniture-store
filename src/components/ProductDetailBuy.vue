@@ -2,7 +2,7 @@
   <b-col class="flex-column">
     <div class="product-ID">Model Number: {{ selected }}</div>
     <b-form-group label="Colors:">
-      <b-form-radio-group buttons button-variant="outline-primary" v-model="selected">
+      <b-form-radio-group class="radio" size="sm" buttons button-variant="outline-primary" v-model="selected">
         <b-form-radio v-for="version in details" :key="version.product_id" :value="version.product_id"
           @click.native="updateSelection(version.image_url, version.product_id)">
           {{ version.color }}
@@ -50,6 +50,10 @@ export default {
 <style scoped>
 .flex-column {
   text-align: center;
+}
+
+.radio {
+  font-size: 5px;
 }
 
 .product-ID {

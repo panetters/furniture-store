@@ -41,7 +41,9 @@ export default {
 .jumbo {
   color: #1D4849;
   margin-bottom: 0;
-  background: #8DF3CF url('https://spreetail.com/wp-content/themes/spreetail/assets/img/brand/pattern2.png');
+  background: url('../assets/skate.jpg');
+  background-position-x: center;
+  /* background: #8DF3CF url('https://spreetail.com/wp-content/themes/spreetail/assets/img/brand/pattern2.png'); */
 }
 
 .slide-container {
