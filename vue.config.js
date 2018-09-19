@@ -1,7 +1,7 @@
 module.exports = {
   devServer: {
     proxy: {
-      '/api': {
+      'spreetail/api': {
         target: 'http://localhost:8082',
         secure: false,
       }

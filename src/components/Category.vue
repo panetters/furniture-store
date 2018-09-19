@@ -31,7 +31,7 @@ export default {
 
   methods: {
     updateFurniture() {
-      axios.get(`/api/category?catName=${this.catName}`)
+      axios.get(`spreetail/api/category?catName=${this.catName}`)
       .then(res => {
         this.furniture = res.data;
       })

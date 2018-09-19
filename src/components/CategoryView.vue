@@ -14,7 +14,7 @@ export default {
 
   methods: {
     modelSelect(model) {
-      this.$router.push({ path: `/model/${model}` });
+      this.$router.push({ path: `spreetail/model/${model}` });
     }
   }
 }

@@ -16,10 +16,10 @@ Vue.use(VueRouter);
 Vue.use(BootstrapVue);
 
 const routes = [
-  { path: '/', component: Splash },
-  { path: '/cart', component: Cart},
-  { path: '/category/:catName', component: Category, props: true },
-  { path: '/model/:modelName', component: ProductDetail, props: true }
+  { path: '/spreetail/', component: Splash },
+  { path: 'spreetail/cart', component: Cart},
+  { path: 'spreetail/category/:catName', component: Category, props: true },
+  { path: 'spreetail/model/:modelName', component: ProductDetail, props: true }
 ];
 
 const router = new VueRouter({

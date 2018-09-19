@@ -38,7 +38,7 @@ export default {
   },
 
   mounted() {
-    axios.get(`/api/model?modelName=${this.modelName}`)
+    axios.get(`spreetail/api/model?modelName=${this.modelName}`)
       .then(res => {
         this.details = res.data;
         this.curImageURL = res.data[0].image_url;

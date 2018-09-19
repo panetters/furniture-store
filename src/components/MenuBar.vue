@@ -27,12 +27,12 @@ export default {
 
   methods: {
     catSelect(cat) {
-      this.$router.push({ path: `/category/${cat}` });
+      this.$router.push({ path: `spreetail/category/${cat}` });
     }
   },
 
   mounted() {
-    axios.get('/api/categories')
+    axios.get('spreetail/api/categories')
       .then(res => {
         this.categories = res.data;
       });

@@ -18,11 +18,11 @@ export default {
 
   methods: {
     goHome() {
-      this.$router.push({ path: '/' });
+      this.$router.push({ path: 'spreetail/' });
     },
 
     toCart() {
-      this.$router.push({ path: '/cart' });
+      this.$router.push({ path: 'spreetail/cart' });
     }
   },
 
