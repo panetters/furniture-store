@@ -13,18 +13,29 @@ export default new Vuex.Store({
   },
   
   actions: {
-    addToCart({ commit }, product) {
-      commit('updateCart', product);
-    },
+    addToCart({ commit, state }, product) {
+      const curInd = state.cart.findIndex(obj => obj.id === product.product_id);
+      if (curInd === -1) { commit('updateCart', product); }
+      else {
+        commit('updateQty', { index: curInd, qty: product.quantity });
+      }
+    }
   },
   
   mutations: {
     updateCart(s, product) {
-      const curInd = s.cart.findIndex(prod => prod.product_id === product.product_id);
-      if (curInd > -1) {
-        s.cart[curInd].quantity += product.quantity; 
-      }
-      else { s.cart.push(product); }
+      s.cart.push({
+        id: product.product_id,
+        model: product.model,
+        quantity: product.quantity,
+        price: product.price,
+        color: product.color,
+        imageURL: product.image_url
+      });
+    },
+
+    updateQty(s, { index, qty }) {
+      s.cart[index].quantity += qty;
     }
   }
 });
