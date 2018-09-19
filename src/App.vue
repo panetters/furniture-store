@@ -28,7 +28,7 @@ export default {
 
     chanceModal() {
       if (Math.ceil(Math.random() * 20) === 1) this.showModal();
-      setTimeout(this.chanceModal, 15000);
+      setTimeout(this.chanceModal, 25000);
     }
   },
 
