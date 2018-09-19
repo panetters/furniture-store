@@ -11,6 +11,7 @@ import Cart from './components/Cart';
 import Category from './components/Category';
 import ProductDetail from './components/ProductDetail';
 import Search from './components/Search';
+import Main from './components/Main';
 
 Vue.config.productionTip = false;
 Vue.use(VueRouter);
@@ -21,7 +22,8 @@ const routes = [
   { path: '/cart', component: Cart},
   { path: '/category/:catName', component: Category, props: true },
   { path: '/model/:modelName', component: ProductDetail, props: true },
-  { path: '/search/:searchQuery', component: Search, props: true }
+  { path: '/search/:searchQuery', component: Search, props: true },
+  { path: '/main', component: Main}
 ];
 
 const router = new VueRouter({

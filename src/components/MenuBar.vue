@@ -1,5 +1,5 @@
 <template>
-  <b-navbar toggleable="md" type="dark" class="manu-bar">
+  <b-navbar toggleable="md" type="dark" class="menu-bar">
     <b-navbar-toggle target="nav_collapse"></b-navbar-toggle>
     <b-collapse is-nav id="nav_collapse">
       <b-navbar-nav class="ml-left">
@@ -53,7 +53,7 @@ export default {
 </script>
 
 <style scoped>
-.manu-bar {
+.menu-bar {
   background: #1D4849;
 }
 

@@ -1,7 +1,7 @@
 <template>
   <div id="app">
-    <Navbar />
-    <MenuBar />
+    <Navbar v-if="$route.path !== '/main'"/>
+    <MenuBar v-if="$route.path !== '/main'"/>
     <router-view></router-view>
     <b-modal ref="popup" size="lg" centered hide-footer hide-header hide-backdrop>
       <img src="./assets/fake-popup.png" />
