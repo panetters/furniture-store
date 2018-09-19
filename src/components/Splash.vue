@@ -46,9 +46,9 @@ export default {
 
 .slide-container {
   display: flex;
+  flex-flow: row wrap;
   justify-content: space-around;
   background: #1D4849;
-  padding: 20px;
 }
 
 .splash-show {

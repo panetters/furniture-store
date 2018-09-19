@@ -24,6 +24,7 @@ export default {
 <style scoped>
 .splash-show {
   width: calc(250px + 3vw);
+  margin: calc(10px + 1.5vw);
 }
 
 .splash-show:hover {
