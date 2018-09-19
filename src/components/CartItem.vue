@@ -31,7 +31,7 @@ export default {
 
   watch: {
     quantity() {
-      this.cartQtyChange({ id: this.product.id, quantity: parseInt(this.quantity) });
+      if (this.quantity > 0) this.cartQtyChange({ id: this.product.id, quantity: parseInt(this.quantity) });
     }
   }
 };

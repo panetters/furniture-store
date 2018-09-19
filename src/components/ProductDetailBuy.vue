@@ -35,9 +35,13 @@ export default {
     ...mapActions(['addToCart']),
 
     addProductToCart() {
-      const newProd = this.details.find(obj => obj.product_id === this.selected);
-      newProd.quantity = parseInt(this.quantity);
-      this.addToCart(newProd);
+      if (this.quantity < 1) {
+        alert('Please enter a quantity');
+      } else {
+        const newProd = this.details.find(obj => obj.product_id === this.selected);
+        newProd.quantity = parseInt(this.quantity);
+        this.addToCart(newProd);
+      }
     }
   },
 
