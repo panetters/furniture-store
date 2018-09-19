@@ -10,7 +10,8 @@ export default new Vuex.Store({
   
   getters: {
     getCart: (s) => s.cart,
-    getCartCount: (s) => s.cart.length
+    getCartCount: (s) => s.cart.length,
+    getCartSum: (s) => s.cart.reduce((c, v) => c + v.quantity * v.price.slice(1), 0).toFixed(2)
   },
   
   actions: {
