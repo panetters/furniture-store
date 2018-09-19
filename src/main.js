@@ -4,6 +4,7 @@ import store from '../store/store';
 import BootstrapVue from 'bootstrap-vue';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap-vue/dist/bootstrap-vue.css';
+import VModal from 'vue-js-modal';
 
 import App from './App';
 import Splash from './components/Splash';
@@ -15,6 +16,7 @@ import Search from './components/Search';
 Vue.config.productionTip = false;
 Vue.use(VueRouter);
 Vue.use(BootstrapVue);
+Vue.use(VModal);
 
 const routes = [
   { path: '/', component: Splash },
