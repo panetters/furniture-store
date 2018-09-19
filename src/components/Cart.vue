@@ -64,8 +64,4 @@ export default {
   font-size: calc(10px + 1vw);
   margin: 10px;
 }
-
-.payment {
-
-}
 </style>

@@ -32,7 +32,7 @@ export default {
 }
 
 .category-image {
-  width: calc(100px + 20vw);
+  width: calc(40px + 20vw);
 }
 
 .category-price {
