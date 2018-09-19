@@ -22,8 +22,13 @@ export default new Vuex.Store({
       }
     },
 
-    removeFromCart({ commit, state }, id) {
+    removeFromCart({ commit }, id) {
         commit('removeCart', id);
+    },
+
+    cartQtyChange({ commit, state }, newInfo) {
+      const curInd = state.cart.findIndex(obj => obj.id === newInfo.id);
+      commit('changeQty', { index: curInd, qty: newInfo.quantity });
     }
   },
   
@@ -45,6 +50,10 @@ export default new Vuex.Store({
 
     removeCart(s, id) {
       s.cart = s.cart.filter(prod => prod.id !== id);
+    },
+
+    changeQty(s, { index, qty }) {
+      s.cart[index].quantity = qty;
     }
   }
 });

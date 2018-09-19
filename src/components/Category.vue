@@ -46,7 +46,7 @@ export default {
     catName() {
       this.updateFurniture();
     }
-  },
+  }
 }
 </script>
 

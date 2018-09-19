@@ -1,10 +1,12 @@
 <template>
   <li class="cart-item">
     <img :src="product.imageURL" class="product-image" />
-    <div class="value product-model">{{ product.model }}</div>
-    <div class="value product-price">{{ product.price }}</div>
-    <div class="value product-color">{{ product.color }}</div>
-    <div class="value product-quantity">{{ product.quantity }}</div>
+    <div class="value">{{ product.model }}, {{ product.color }}</div>
+    <div class="value quantity-container">
+      <b-form-input type="number" v-model="quantity" :value="product.quantity"
+        min="1" class="product-quantity"></b-form-input>
+    </div>
+    <div class="value">{{ product.price }}</div>
     <div class="cart-button" v-on:click="removeFromCart(product.id)">Remove</div>
   </li>
 </template>
@@ -17,8 +19,20 @@ export default {
   
   props: ['product'],
 
+  data() {
+    return {
+      quantity: ''
+    }
+  },
+
   methods: {
-    ...mapActions(['removeFromCart'])
+    ...mapActions(['cartQtyChange', 'removeFromCart'])
+  },
+
+  watch: {
+    quantity() {
+      this.cartQtyChange({ id: this.product.id, quantity: parseInt(this.quantity) });
+    }
   }
 };
 </script>
@@ -33,11 +47,20 @@ export default {
 }
 
 .product-image {
-  width: 32px;
+  width: 48px;
 }
 
 .value {
   width: 25%;
+}
+
+.quantity-container {
+  text-align: center;
+}
+
+.product-quantity {
+  width: 65px;
+  margin: auto;
 }
 
 .cart-button:hover {
