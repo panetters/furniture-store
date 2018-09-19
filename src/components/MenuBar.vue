@@ -3,16 +3,16 @@
     <b-navbar-toggle target="nav_collapse"></b-navbar-toggle>
     <b-collapse is-nav id="nav_collapse">
       <b-navbar-nav class="ml-left">
-        <b-nav-item-dropdown text="Categories">
+        <b-nav-item-dropdown class="category-drop" text="Categories">
           <b-dropdown-item v-for="category in categories" :key="category" v-on:click="catSelect(category)">
             {{ category }}
           </b-dropdown-item>
         </b-nav-item-dropdown>
-        <b-nav-form>
+        <div class="form">
           <b-form-input size="sm" class="mr-sm-2" type="text" @keyup.enter.native="search"
             v-model="searchQuery" placeholder="Search"/>
-          <b-button size="sm" class="my-2 my-sm-0" v-on:click="search">Search</b-button>
-        </b-nav-form>
+          <b-button type="submit" size="sm" class="my-2 my-sm-0" v-on:click="search">Search</b-button>
+        </div>
       </b-navbar-nav>
     </b-collapse>
   </b-navbar>
@@ -53,5 +53,14 @@ export default {
 </script>
 
 <style scoped>
+.category-drop {
+  margin-right: 5vw;
+}
 
+.form {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+}
 </style>
