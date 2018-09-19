@@ -13,6 +13,7 @@ export default {
 
 <style scoped>
 .jumbo {
-  margin-bottom: 0;
+  color: #1D4849;
+  background: #8DF3CF url('https://spreetail.com/wp-content/themes/spreetail/assets/img/brand/pattern2.png');
 }
 </style>

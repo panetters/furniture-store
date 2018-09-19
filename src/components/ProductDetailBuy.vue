@@ -2,14 +2,14 @@
   <b-col class="flex-column">
     <div class="product-ID">Model Number: {{ selected }}</div>
     <b-form-group label="Colors:">
-      <b-form-radio-group buttons button-variant="outline-primary" v-model="selected" name="radioSubComponent">
+      <b-form-radio-group buttons button-variant="outline-primary" v-model="selected">
         <b-form-radio v-for="version in details" :key="version.product_id" :value="version.product_id"
           @click.native="updateSelection(version.image_url, version.product_id)">
           {{ version.color }}
         </b-form-radio>
       </b-form-radio-group>
     </b-form-group>
-    <div>
+    <div class="product-quantity">
       Quantity: <b-form-input type="number" v-model="quantity" value="1" min="1" class="quantity-input"></b-form-input>
     </div>
     <b-button size="lg" variant="outline-success" v-on:click="addProductToCart">Add to Cart!</b-button>
@@ -50,6 +50,15 @@ export default {
 <style scoped>
 .flex-column {
   text-align: center;
+}
+
+.product-ID {
+  font-size: calc(10px + 1vw);
+  margin: 2vh;
+}
+
+.product-quantity {
+  margin: 2vh;
 }
 
 .quantity-input {
