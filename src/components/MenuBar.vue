@@ -37,7 +37,9 @@ export default {
     },
 
     search() {
-      this.$router.push({ path: `/search/${this.searchQuery}` });
+      const tempQuery = this.searchQuery;
+      this.searchQuery = '';
+      this.$router.push({ path: `/search/${tempQuery}` });
     }
   },
 

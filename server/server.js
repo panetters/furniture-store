@@ -7,7 +7,6 @@ const routes = require('./routes');
 
 const server = express();
 server.use(bodyParser.json());
-server.use('/spreetail', express.static(__dirname + '../public'));
 
 server.use('/api/', routes);
 

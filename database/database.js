@@ -51,12 +51,21 @@ const getModelInfo = async (model) => {
 };
 
 const getSearchResults = async (query) => {
-  const res = await ModelInfo.find({
-    $or: [
-      {'model': { $regex: query, $options: 'i' }},
-      {'category': { $regex: query, $options: 'i' }}
-    ]
-  })
+  const res = await ModelInfo.aggregate([
+    { $group: {
+        _id: '$model',
+        category: { $first: '$category' },
+        model: { $first: '$model' },
+        price: { $first: '$price' },
+        image_url: { $first: '$image_url' }
+    }},
+    { $match: {
+        $or: [
+          {'model': { $regex: query, $options: 'i' }},
+          {'category': { $regex: query, $options: 'i' }}
+        ]
+    }}
+  ]);
   return res;
 };
 

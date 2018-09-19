@@ -1,6 +1,6 @@
 <template>
   <b-navbar sticky type="dark" variant="primary">
-    <b-navbar-brand class="logo pointer" v-on:click="goHome">Spreetail</b-navbar-brand>
+    <b-navbar-brand class="logo pointer" v-on:click="goHome">Panettikea</b-navbar-brand>
     <b-navbar-nav>
       <b-nav-item v-on:click="toCart">
         <div class="svg-container"><img src="../assets/shopping-cart.svg"></div>

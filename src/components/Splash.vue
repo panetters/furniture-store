@@ -1,6 +1,6 @@
 <template>
   <div>
-    <b-jumbotron class="jumbo logo" header="Welcome to Spreetail"
+    <b-jumbotron class="jumbo logo" header="Welcome to Panettikea"
       lead="World's finest purveyor of knockoff Ikea furniture"></b-jumbotron>
   </div>
 </template>
