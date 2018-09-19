@@ -1,5 +1,5 @@
 <template>
-  <b-col class="flex-column" >
+  <b-col class="flex-column">
     <div class="product-ID">Model Number: {{ selected }}</div>
     <b-form-group label="Colors:">
       <b-form-radio-group buttons button-variant="outline-primary" v-model="selected" name="radioSubComponent">
@@ -48,6 +48,10 @@ export default {
 </script>
 
 <style scoped>
+.flex-column {
+  text-align: center;
+}
+
 .quantity-input {
   display: inline-block;
   width: 65px;

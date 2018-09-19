@@ -7,6 +7,7 @@ import 'bootstrap-vue/dist/bootstrap-vue.css';
 
 import App from './App';
 import Splash from './components/Splash';
+import Cart from './components/Cart';
 import Category from './components/Category';
 import ProductDetail from './components/ProductDetail';
 
@@ -16,6 +17,7 @@ Vue.use(BootstrapVue);
 
 const routes = [
   { path: '/', component: Splash },
+  { path: '/cart', component: Cart},
   { path: '/category/:catName', component: Category, props: true },
   { path: '/model/:modelName', component: ProductDetail, props: true }
 ];

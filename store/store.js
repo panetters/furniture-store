@@ -9,7 +9,8 @@ export default new Vuex.Store({
   },
   
   getters: {
-    getCart: (s) => s.cart
+    getCart: (s) => s.cart,
+    getCartCount: (s) => s.cart.length
   },
   
   actions: {
@@ -19,6 +20,10 @@ export default new Vuex.Store({
       else {
         commit('updateQty', { index: curInd, qty: product.quantity });
       }
+    },
+
+    removeFromCart({ commit, state }, id) {
+        commit('removeCart', id);
     }
   },
   
@@ -36,6 +41,10 @@ export default new Vuex.Store({
 
     updateQty(s, { index, qty }) {
       s.cart[index].quantity += qty;
+    },
+
+    removeCart(s, id) {
+      s.cart = s.cart.filter(prod => prod.id !== id);
     }
   }
 });

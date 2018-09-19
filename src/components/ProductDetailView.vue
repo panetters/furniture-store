@@ -1,5 +1,5 @@
 <template>
-  <b-col class="flex-column" >
+  <b-col class="flex-column">
     <div class="product-model">{{ model }}</div>
     <img class="product-image" :src="imageURL" />
     <div class="product-price">Price: {{ price }}</div>
