@@ -19,7 +19,7 @@ export default new Vuex.Store({
       const curInd = state.cart.findIndex(obj => obj.id === product.product_id);
       if (curInd === -1) { commit('updateCart', product); }
       else {
-        commit('updateQty', { index: curInd, qty: product.quantity });
+        commit('updateQty', { index: curInd, qty: product.quantity, stock: product.stock });
       }
     },
 
@@ -49,8 +49,8 @@ export default new Vuex.Store({
       });
     },
 
-    updateQty(s, { index, qty }) {
-      s.cart[index].quantity += qty;
+    updateQty(s, { index, qty, stock }) {
+      s.cart[index].quantity = Math.min(stock, s.cart[index].quantity + qty);
     },
 
     removeCart(s, id) {

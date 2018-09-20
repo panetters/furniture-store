@@ -5,7 +5,7 @@
     <div class="value">{{ product.price }}</div>
     <div class="value quantity-container">
       <b-form-input type="number" v-model="quantity" :value="product.quantity"
-        min="1" class="product-quantity"></b-form-input>
+        min="1" :max="product.stock" class="product-quantity"></b-form-input>
     </div>
     <div class="cart-button" v-on:click="removeFromCart(product.id)">Delete</div>
   </li>
