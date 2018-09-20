@@ -29,4 +29,12 @@ router.get('/slides', async (req, res) => {
   res.send(slides);
 });
 
+router.post('/removeStock', (req, res) => {
+  db.removeStock(req.body);
+});
+
+router.post('/refresh', (req, res) => {
+  db.refreshStock();
+});
+
 module.exports = router;

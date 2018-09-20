@@ -1,6 +1,6 @@
 <template>
   <div class="splash-content">
-    <b-jumbotron class="jumbo logo" header="Welcome to Mikea"
+    <b-jumbotron class="jumbo logo" v-on:dblclick="refreshStock" header="Welcome to Mikea"
       lead="World's finest purveyor of knockoff Ikea furniture"></b-jumbotron>
     <div class="slide-container">
       <Carousel v-for="(slide, ind) in slides" :slides="slides[ind]" :key="ind"/>
@@ -23,6 +23,12 @@ export default {
   data() {
     return {
       slides: []
+    }
+  },
+
+  methods: {
+    refreshStock() {
+      axios.post('/api/refresh/');
     }
   },
 

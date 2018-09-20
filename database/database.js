@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const mongoPath = process.env.MONGO_URL;
 
 mongoose.connect(mongoPath, { useNewUrlParser: true });
+mongoose.set('useFindAndModify', false);
 const db = mongoose.connection;
 const Schema = mongoose.Schema;
 
@@ -23,7 +24,7 @@ const ModelInfo = mongoose.model('ModelInfo',
     price: String,
     image_url: String,
     color: String,
-    stock: String
+    stock: Number
   }), 'furniture');
 
 const getCategories = async () => {
@@ -76,8 +77,24 @@ const getSlides = async () => {
   return res;
 };
 
+const removeStock = async (cart) => {
+  for (let item of cart) {
+    await ModelInfo.findOneAndUpdate(
+      { product_id: item.id },
+      { '$inc': { 'stock': -item.quantity }}
+    );
+  }
+};
+
+const refreshStock = async () => {
+  console.log('Stock Refreshed!');
+  await ModelInfo.updateMany({}, { '$set': { 'stock': 10 }});
+};
+
 module.exports.getCategories = getCategories;
 module.exports.getCategoryFurn = getCategoryFurn;
 module.exports.getModelInfo = getModelInfo;
 module.exports.getSearchResults = getSearchResults;
 module.exports.getSlides = getSlides;
+module.exports.removeStock = removeStock;
+module.exports.refreshStock = refreshStock;

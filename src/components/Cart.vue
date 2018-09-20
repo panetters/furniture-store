@@ -7,16 +7,14 @@
       </ul>
       <div class="checkout">
         <div class="total">Subtotal: ${{ getCartSum }}</div>
-        <b-button size="lg" variant="success" v-on:click="showAlert=true">Checkout!</b-button>
-        <b-alert class="alert" variant="danger" dismissible :show="showAlert" @dismissed="showAlert=false">
-          System's down!<br>Try again later.
-        </b-alert>
+        <b-button size="lg" variant="success" v-on:click="checkout">Checkout!</b-button>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import axios from 'axios';
 import { mapGetters, mapActions } from 'vuex';
 
 import CartItem from './CartItem';
@@ -38,6 +36,22 @@ export default {
 
   computed: {
     ...mapGetters(['getCart', 'getCartSum'])
+  },
+
+  methods: {
+    ...mapActions(['clearCart']),
+
+    checkout() {
+      const curCart = this.getCart;
+      if (curCart.length) {
+        axios({
+          url: 'api/removeStock',
+          method: 'post',
+          data: curCart
+        });
+        this.clearCart();
+      }
+    }
   }
 }
 </script>

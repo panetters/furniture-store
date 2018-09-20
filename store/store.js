@@ -30,6 +30,10 @@ export default new Vuex.Store({
     cartQtyChange({ commit, state }, newInfo) {
       const curInd = state.cart.findIndex(obj => obj.id === newInfo.id);
       commit('changeQty', { index: curInd, qty: newInfo.quantity });
+    }, 
+
+    clearCart({ commit }) {
+      commit('emptyCart');
     }
   },
   
@@ -55,6 +59,10 @@ export default new Vuex.Store({
 
     changeQty(s, { index, qty }) {
       s.cart[index].quantity = qty;
+    },
+
+    emptyCart(s) {
+      s.cart = [];
     }
   }
 });
