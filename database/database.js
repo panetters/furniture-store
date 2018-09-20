@@ -41,7 +41,7 @@ const getCategoryFurn = async (cat) => {
         price: { $first: '$price' },
         image_url: { $first: '$image_url' }
     }},
-    { $match: { category: cat }},
+    { $match: { category: cat }}
   ]);
   return res;
 };

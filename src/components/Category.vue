@@ -33,7 +33,7 @@ export default {
     updateFurniture() {
       axios.get(`/api/category?catName=${this.catName}`)
       .then(res => {
-        this.furniture = res.data;
+        this.furniture = res.data.sort((a, b) => parseInt(a.price.slice(1)) - parseInt(b.price.slice(1)));
       })
     }
   },

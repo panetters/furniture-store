@@ -46,7 +46,7 @@ export default {
   mounted() {
     axios.get('/api/categories')
       .then(res => {
-        this.categories = res.data;
+        this.categories = res.data.sort();
       });
   }
 }
