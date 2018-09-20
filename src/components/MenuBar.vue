@@ -9,8 +9,8 @@
           </b-dropdown-item>
         </b-nav-item-dropdown>
         <div class="form">
-          <b-form-input size="sm" class="mr-sm-2" type="text" @keyup.enter.native="search"
-            v-model="searchQuery" placeholder="Search"/>
+          <b-form-input id="search-field" size="sm" class="mr-sm-2" type="text" 
+            @keyup.enter.native="search" v-model="searchQuery" placeholder="Search"/>
           <b-button type="submit" size="sm" class="my-2 my-sm-0" v-on:click="search">Search</b-button>
         </div>
       </b-navbar-nav>
@@ -39,6 +39,7 @@ export default {
     search() {
       const tempQuery = this.searchQuery;
       this.searchQuery = '';
+      document.getElementById('search-field').blur();
       this.$router.push({ path: `/search/${tempQuery}` });
     }
   },
