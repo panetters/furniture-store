@@ -13,6 +13,9 @@
       Quantity: <b-form-input type="number" v-model="quantity" value="1" min="1" class="quantity-input"></b-form-input>
     </div>
     <b-button size="lg" variant="outline-success" v-on:click="addProductToCart">Add to Cart!</b-button>
+    <b-alert class="alert" variant="primary" dismissible :show="showAlert" @dismissed="showAlert=false">
+      Please enter a quantity!
+    </b-alert>
   </b-col>
 </template>
 
@@ -27,7 +30,8 @@ export default {
   data() {
     return {
       selected: '',
-      quantity: '1'
+      quantity: '1',
+      showAlert: false
     }
   },
 
@@ -36,7 +40,7 @@ export default {
 
     addProductToCart() {
       if (this.quantity < 1) {
-        alert('Please enter a quantity');
+        this.showAlert = true;
       } else {
         const newProd = this.details.find(obj => obj.product_id === this.selected);
         newProd.quantity = parseInt(this.quantity);
@@ -72,5 +76,11 @@ export default {
 .quantity-input {
   display: inline-block;
   width: 65px;
+}
+
+.alert {
+  width: 40%;
+  margin: auto;
+  margin-top: 1vh;
 }
 </style>
