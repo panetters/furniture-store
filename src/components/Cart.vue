@@ -49,6 +49,10 @@ export default {
       const curCart = this.getCart;
       if (curCart.length) {
         this.purchased = true;
+        curCart.map(item => {
+          if (item.quantity > item.stock) item.quantity = item.stock;
+          return item;
+        });
         axios({
           url: 'api/removeStock',
           method: 'post',

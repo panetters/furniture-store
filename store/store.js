@@ -45,7 +45,8 @@ export default new Vuex.Store({
         quantity: product.quantity,
         price: product.price,
         color: product.color,
-        imageURL: product.image_url
+        imageURL: product.image_url,
+        stock: product.stock
       });
     },
 
