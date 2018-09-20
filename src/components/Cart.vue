@@ -7,7 +7,10 @@
       </ul>
       <div class="checkout">
         <div class="total">Subtotal: ${{ getCartSum }}</div>
-        <b-button size="lg" variant="success">Checkout!</b-button>
+        <b-button size="lg" variant="success" v-on:click="showAlert=true">Checkout!</b-button>
+        <b-alert class="alert" variant="danger" dismissible :show="showAlert" @dismissed="showAlert=false">
+          System's Down!<br>Try again later 
+        </b-alert>
       </div>
     </div>
   </div>
@@ -28,7 +31,8 @@ export default {
   data() {
     return {
       selected: '',
-      quantity: '1'
+      quantity: '1',
+      showAlert: false
     }
   },
 
@@ -63,5 +67,10 @@ export default {
 .total {
   font-size: calc(10px + 1vw);
   margin: 10px;
+}
+
+.alert {
+  margin: auto;
+  margin-top: 1vh;
 }
 </style>
