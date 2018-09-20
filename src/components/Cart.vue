@@ -1,6 +1,7 @@
 <template>
   <div>
     <div class="cart-header">Your Cart:</div>
+    <div v-if="!getCart[0]" class="no-results">Nothing here yet! Get Shopping! 😂</div>
     <div class="flex-container">
       <ul class="cart-list">
         <CartItem class="cart-item" v-for="product in getCart" :product="product" :key="product.id" />
@@ -8,6 +9,9 @@
       <div class="checkout">
         <div class="total">Subtotal: ${{ getCartSum }}</div>
         <b-button size="lg" variant="success" v-on:click="checkout">Checkout!</b-button>
+        <b-alert class="alert" variant="success" dismissible :show="purchased" @dismissed="purchased=false">
+          Treat yoself!
+        </b-alert>
       </div>
     </div>
   </div>
@@ -30,7 +34,7 @@ export default {
     return {
       selected: '',
       quantity: '1',
-      showAlert: false
+      purchased: false
     }
   },
 
@@ -44,6 +48,7 @@ export default {
     checkout() {
       const curCart = this.getCart;
       if (curCart.length) {
+        this.purchased = true;
         axios({
           url: 'api/removeStock',
           method: 'post',
@@ -86,5 +91,11 @@ export default {
 .alert {
   margin: auto;
   margin-top: 1vh;
+}
+
+.no-results {
+  text-align: center;
+  margin-top: 10px;
+  font-size: calc(10px + 1.5vw);
 }
 </style>

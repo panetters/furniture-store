@@ -21,6 +21,9 @@
     <b-alert class="alert" variant="primary" dismissible :show="alertStock" @dismissed="alertStock=false">
       Not enough stock!
     </b-alert>
+    <b-alert class="alert" variant="success" dismissible :show="alertCart" @dismissed="alertCart=false">
+      Cart Updated!
+    </b-alert>
   </b-col>
 </template>
 
@@ -38,7 +41,8 @@ export default {
       quantity: 1,
       stock: '',
       alertQuantity: false,
-      alertStock: false
+      alertStock: false,
+      alertCart: false
     }
   },
 
@@ -56,6 +60,7 @@ export default {
       } else if (parseInt(this.quantity) > parseInt(this.stock)) {
         this.alertStock = true;
       } else {
+        this.alertCart = true;
         const newProd = this.details.find(obj => obj.product_id === this.selected);
         newProd.quantity = parseInt(this.quantity);
         this.addToCart(newProd);

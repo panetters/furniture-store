@@ -65,7 +65,7 @@ export default {
 }
 
 .product-quantity {
-  width: calc(40px + 1vw);
+  width: calc(40px + 1.5vw);
   margin: auto;
 }
 
