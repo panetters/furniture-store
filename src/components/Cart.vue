@@ -10,7 +10,7 @@
         <div class="total">Subtotal: ${{ getCartSum }}</div>
         <b-button size="lg" variant="success" v-on:click="checkout">Checkout!</b-button>
         <b-alert class="alert" variant="success" dismissible :show="purchased" @dismissed="purchased=false">
-          Treat yoself!
+          Treat yo self!
         </b-alert>
       </div>
     </div>
