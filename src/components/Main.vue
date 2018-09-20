@@ -22,7 +22,7 @@
         <th>Color</th> 
         <th>Price</th>
       </tr>
-      <tr v-for="item in cart" :key="item.product_id">
+      <tr v-for="item in cart" :key="item.product_id + 1">
         <td>{{ item.model }}</td>
         <td>{{ item.color }}</td> 
         <td>{{ item.price }}</td>
