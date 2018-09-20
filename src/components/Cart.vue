@@ -9,7 +9,7 @@
         <div class="total">Subtotal: ${{ getCartSum }}</div>
         <b-button size="lg" variant="success" v-on:click="showAlert=true">Checkout!</b-button>
         <b-alert class="alert" variant="danger" dismissible :show="showAlert" @dismissed="showAlert=false">
-          System's Down!<br>Try again later 
+          System's down!<br>Try again later.
         </b-alert>
       </div>
     </div>
